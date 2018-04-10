@@ -20,7 +20,9 @@ import 'rxjs/add/operator/map';
       width: '200px',
       display: 'inline'
     })),
-    transition('small => large', animate('300ms ease-out', style({
+    transition('small => large', animate('300ms ease-in', style({
+    }))),
+    transition('large => small', animate('300ms ease-in', style({
     }))),
     ]),
   ]
