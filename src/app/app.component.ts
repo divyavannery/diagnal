@@ -11,19 +11,8 @@ import { ContentService } from './content.service';
 })
 export class AppComponent {
   title = 'app';
-  searchResult=[];
-  searchTerm : FormControl = new FormControl();
-  constructor(private contentService:ContentService){
-    this.searchTerm.valueChanges
-    .subscribe(data => {
-      if(data.length === 0 || !data.trim()){
-        this.searchResult=[];
-      }else {
-        this.contentService.search_word(data).subscribe(response =>{
-            this.searchResult = response;
-        })
-      }
-    })
+
+  constructor(){
       
   }
 }
