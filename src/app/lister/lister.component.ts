@@ -57,6 +57,7 @@ export class ListerComponent implements OnInit {
 
   onSearch() {
      this.state = (this.state === 'small' ? 'large' : 'small');
+     this.searchResult=[];
   }
 
   ngOnInit() {
