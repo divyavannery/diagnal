@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="navbar">
+       <a href=""><img src="assets/Slices/Back.png" alt=""></a>
+       <div class="title-container"><h1 class="category-title">Romantic Comedy</h1></div>
+       <div class="search-container" (click)="onSearch()"><img src ="assets/Slices/search.png"/></div>
+  </div>
+  <div class="wrap-container" infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()">
+    <ng-container  *ngFor="let content of contents; let i = index">
+      <ng-container *ngIf="i%3==0">
+        <div class="row"> 
+       <div *ngIf="contents[i]" class="card">
+         <img src="{{'assets/Slices/'+contents[i]['poster-image']}}" alt="Avatar" style="width:100%" onError="this.src='assets/Slices/placeholder_for_missing_posters.png';">
+           <div class="container">
+             <p>{{contents[i].name}}</p> 
+            </div>
+        </div>
+        <div *ngIf="contents[i+1]" class="card">
+            <img src="{{'assets/Slices/'+contents[i+1]['poster-image']}}" alt="Avatar" style="width:100%" onError="this.src='assets/Slices/placeholder_for_missing_posters.png';">
+              <div class="container">
+                  <p>{{contents[i+1].name}}</p> 
+               </div>
+           </div>
+
+           <div *ngIf="contents[i+2]" class="card">
+              <img src="{{'assets/Slices/'+contents[i+1]['poster-image']}}" alt="Avatar" style="width:100%" onError="this.src='assets/Slices/placeholder_for_missing_posters.png';">
+                <div class="container">
+                    <p>{{contents[i+2].name}}</p> 
+                 </div>
+             </div>
+        </div>
+      </ng-container>
+
+      </ng-container>
+</div>
+</div>

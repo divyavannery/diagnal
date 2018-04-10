@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+}
+    .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        display:inline-block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        width:28%;
+        min-width: 170px;
+        max-width: 230px;
+        margin-left: 30px;
+        background-color: black;
+    }
+    
+    /* On mouse-over, add a deeper shadow */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    /* Add some padding inside the card container */
+    .container {
+        margin-top:24px;
+    }
+    .wrap-container {
+       
+        /* width: 80%; */
+        margin: 0 auto;
+        width: fit-content;
+        width: 100%;
+        padding-top:15px;
+        padding-bottom: 15px;
+        margin-top:180px;
+        background-color: black;
+        left: 0;
+        right:0;
+        max-width: 824px;
+    }
+    .row {
+        display: flex;
+        /* justify-content: center; */
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+    .navbar {
+        overflow: hidden;
+background-color: black;
+position: fixed; 
+top: 0; 
+width: 100%; 
+left: 0;
+right: 0;
+    }
+    .navbar .category-title {
+        color:white;
+        font-family: 'Titillium Web', semibold;
+font-size: 45pt;
+    }
+    .card .container h4,p {
+        font-family: 'Titillium Web', light;
+        font-size: 36pt;
+        color: white;
+        margin:0px;
+    }
+    .navbar .title-container {
+        display: inline-block;
+        margin-left:20px;
+    }
+    .navbar a {
+        margin-left:36px;
+    }
+
+    .container p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .search-container {
+       float:right;
+        margin-right: 20px;
+    }
