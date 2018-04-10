@@ -10,11 +10,6 @@
                <ul *ngIf="searchResult.length" class="result-box">
               <li class="options"*ngFor="let item of searchResult" [attr.data-sectionvalue]="item" (click)="onSelected(item)">{{item.name}}</li>
                </ul>
-            {# <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let item of searchResult" [value]="item">
-                {{ item }}
-              </mat-option>
-            </mat-autocomplete> #}
           </mat-form-field>
           </form>
           <!-- <input type="text"class="searchInput" [@searchAnimation]='state'/> -->
