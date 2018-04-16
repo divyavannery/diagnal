@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CONTENTPAGE1 } from './api/contentListingPage1';
 import { CONTENTPAGE2 } from './api/contentListingPage2';
 import { CONTENTPAGE3 } from './api/contentListingPage3';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { Http } from '@angular/http';
 
@@ -23,6 +25,16 @@ export class ContentService {
     }else if(pageNum==3){
       return of(CONTENTPAGE3);
     }
+  }
+
+  getMovieList(pageNum:number){
+    return this.http.get(`assets/API/CONTENTLISTINGPAGE-PAGE${pageNum}.json`)
+    .pipe(
+        map((res:any) => {
+          return (res.json());
+        })
+         // return res.page}) // or any other operator
+      );
   }
 
   search_word(term, callback){

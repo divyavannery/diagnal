@@ -35,6 +35,7 @@ export class ListerComponent implements OnInit {
   searchResult=[];
   searchTerm : FormControl = new FormControl();
   searching=false;
+  totalNum=0;
 
 
   constructor(private contentService: ContentService) {
@@ -42,10 +43,13 @@ export class ListerComponent implements OnInit {
    }
 
   onScroll () {
-    if(this.currentPage < 3 && this.searching===false){
-    this.contentService.getContent(this.currentPage+1)
-                .subscribe((content)=>{ this.contents = this.contents.concat(content); this.currentPage=this.currentPage+1;})
-                console.log("scrolled");
+    if(this.contents.length < this.totalNum  && this.searching===false){
+      this.contentService.getMovieList(this.currentPage).subscribe((res) =>{
+        var content = res.page;
+        this.totalNum = content['total-content-items'];
+        this.contents = this.contents.concat(content['content-items'].content);
+        this.currentPage=this.currentPage+1;
+      });
     }
   }
   
@@ -71,9 +75,12 @@ export class ListerComponent implements OnInit {
         });
       }
     })
-    this.contentService.getContent(this.currentPage)
-                .subscribe((content)=>{ this.contents = content;})
-                console.log(this.contents);
+    this.contentService.getMovieList(this.currentPage).subscribe((res) =>{
+      var content = res.page;
+      this.totalNum = content['total-content-items'];
+      this.contents = content['content-items'].content;
+      this.currentPage=this.currentPage+1
+    })
   }
 
 }
